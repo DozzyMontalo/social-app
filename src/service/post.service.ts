@@ -1,4 +1,3 @@
-// post.service.ts
 import { omit } from "lodash";
 import PostModel, { Post } from "../models/post.model";
 import {Schema, Types} from "mongoose";

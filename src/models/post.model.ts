@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document, Types } from 'mongoose';
 import { UserDocument } from './user.model';
 
 export interface Post {
@@ -28,3 +28,18 @@ export const PostSchema = new Schema<PostDocument>(
 const PostModel = mongoose.model<PostDocument>('Post', PostSchema);
 
 export default PostModel
+
+export function constructPostInput(text: string, media: string | undefined, userId: string): Post {
+    const userObjectId = new Schema.Types.ObjectId(userId);
+  
+    const postInput: Post = {
+      text,
+      media,
+      user: userObjectId,
+      createdAt: new Date(),
+      likes: [],
+      comments: [],
+    };
+  
+    return postInput;
+  }

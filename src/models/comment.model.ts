@@ -2,9 +2,9 @@ import mongoose, { Schema, Document } from 'mongoose';
 
 export interface Comment {
   text: string;
-  user?: Schema.Types.ObjectId;
-  likes?: Schema.Types.ObjectId[];
-  createdAt?: Date;
+  user: Schema.Types.ObjectId;
+  likes: Schema.Types.ObjectId[];
+  createdAt: Date;
 }
 
 export interface CommentDocument extends Comment, Document {}

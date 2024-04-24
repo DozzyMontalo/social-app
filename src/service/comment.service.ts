@@ -7,7 +7,7 @@ import { Schema } from "mongoose";
 export async function createComment(input: Comment) {
   try {
     const comment = await CommentModel.create(input);
-    return comment.toJSON();
+    return omit(comment.toJSON(), "likes");
   } catch (e: any) {
     throw new Error(e);
   }

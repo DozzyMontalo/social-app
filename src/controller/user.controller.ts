@@ -1,4 +1,3 @@
-// user.controller.ts
 import { Request, Response } from "express";
 import { CreateUserInput } from "../schema/user.schema";
 import { createUser, followUser, unfollowUser } from "../service/user.service";

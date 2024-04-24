@@ -1,7 +1,8 @@
-import express, { Request, Response } from "express";
+// import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 dotenv.config();
 import config from "config";
+import express, { Request, Response } from "express";
 import responseTime from "response-time";
 import connect from "./utils/connect";
 import logger from "./utils/logger";
@@ -11,7 +12,7 @@ import { restResponseTimeHistogram, startMetricsServer } from "./utils/metrics";
 import swaggerDocs from "./utils/swagger";
 
 
-const port = config.get<number>("port");
+const port = config.get<number>("port") 
 
 const app = express();
 
@@ -44,4 +45,5 @@ app.listen(port, async () => {
   startMetricsServer();
 
   swaggerDocs(app, port);
+
 });
